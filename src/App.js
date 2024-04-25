@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import CaputerFace from "./Pages/CaputerFace";
+import Home from "./Pages/Home";
 function App() {
+  const [color, setColor] = useState(2);
+  const [name, setName] = useState('John Doe');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route
+          path="/caputreface"
+          element={<CaputerFace color={color} setColor={setColor}/>}
+        />
+        <Route
+          path="/login"
+          element={<Login color={color} setColor={setColor} setName={setName} />}
+        />
+        <Route
+          path="/register"
+          element={<Register color={color} setColor={setColor} />}
+        />
+        <Route
+          path="/"
+          element={<Home name={name}/>}
+        />
+      </Routes>
     </div>
   );
 }
