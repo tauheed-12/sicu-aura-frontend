@@ -56,6 +56,7 @@ const CaptureFace = ({ color, setColor }) => {
           navigate('/')
         } else {
           console.error('Failed to upload image');
+          console.log('hello')
           alert('Due to cors policy not allowed');
           navigate('/');
         }
